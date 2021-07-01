@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>create</title>
+</head>
+<body>
+    <div> 
+        <form action="Save" method="post">
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td><input type="text" name="Crs_Id" /></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="Crs_Name" /></td>
+                </tr>
+                <tr>
+                    <td>Duration</td>
+                    <td><input type="text" name="Crs_Duration" /></td>
+                </tr>
+                <tr>
+                    <td>Topic</td>
+                    <td>
+                        <select name="Top_Id">
+                            @foreach (var item in (List<Day2Task.Models.Topic>)ViewBag.tops)
+                            {
+                                <option value="@item.Top_Id">@item.Top_Name</option>
+
+                            }
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Save" /></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+</html>

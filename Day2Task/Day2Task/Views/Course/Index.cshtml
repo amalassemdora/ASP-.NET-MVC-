@@ -1,0 +1,44 @@
+﻿@using Day2Task.Models
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+    </head>
+    <body>
+        <div>
+            <a href="/Course/create">Create</a>
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Duration</th>
+                    <th>Topic</th>
+                    <th>Delete</th>
+                </tr>
+                @foreach (var item in (List<Course>)Model)
+                {
+                    <tr>
+                        <td>@item.Crs_Id</td>
+                        <td>@item.Crs_Name</td>
+                        <td>@item.Crs_Duration</td>
+                        @if (item.Topic == null)
+                        {
+                          <td></td>
+                        }
+                        else
+                        {
+                        <td>@item.Topic.Top_Name</td>
+                        }
+                        <td><a href="/Course/delete/@item.Crs_Id" onclick="return confirm('Are you sure that you want to delete topic of @item.Crs_Name ? ')">delete</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>
