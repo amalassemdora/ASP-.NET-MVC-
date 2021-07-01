@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> @ViewBag.Title </title>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("Home", "index", "Website")|
+        @Html.ActionLink("About us", "about", "Website")|
+        @Html.ActionLink("Contact us", "contactus", "Website")
+        @Html.ActionLink("News", "news", "Website")|
+        @Html.ActionLink("Register", "register", "Website")
+        </div>
+        <div style=" height:150px ; background-color:#deadad;font-size:30px;text-align:center">
+            <h4> banner</h4>
+        </div>
+
+        <div>
+            @RenderBody()
+        </div>
+
+        <div style=" height:200px; background-color:#c4bebe ; font-size:30px;text-align:center">
+            <div>
+                @RenderSection("mysection", false)
+            </div>
+            <h4> fotter</h4>
+        </div>
+</body>
+</html>
