@@ -1,0 +1,24 @@
+﻿@model List<Day4Task.Models.Student>
+@{
+    Layout = "~/Views/Shared/_layout1.cshtml";
+    ViewBag.Title = "Index";
+}
+<h1>Index</h1>
+<table class=" table table-active">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Department</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Age</td>
+            <td>@item.Departments.Dept_name</td>
+        </tr>
+    }
+</table>
