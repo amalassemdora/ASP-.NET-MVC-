@@ -1,0 +1,19 @@
+﻿@model Student_App.Models.Student
+@{
+    ViewBag.Title = "profile";
+}
+
+<h2>profile</h2>
+<h1>@Model.St_Fname @Model.St_Lname</h1>
+<table width="100%">
+    <tr>
+        <td>phone: @Model.phone <br /> age: @Model.St_Age </td>
+        <td></td>
+        <td><img src="~/Attach/@Model.photo" width="200" height="200" /></td>
+    </tr>
+    <tr>
+        <td> address : @Model.St_Address<br /> E-mail: @Model.Email</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>

@@ -1,0 +1,20 @@
+﻿
+<table class="table center-block">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Duration</td>
+    </tr>
+
+    @foreach (var item in (List<Student_App.Models.Course>)ViewBag.course)
+    {
+        <tr>
+            <td>@item.Crs_Id</td>
+            <td>@item.Crs_Name</td>
+            <td>@item.Crs_Duration</td>
+        </tr>
+    }
+
+</table>
+
+

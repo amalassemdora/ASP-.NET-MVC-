@@ -1,0 +1,20 @@
+﻿@model SelectList
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Instructors</h2>
+@Html.DropDownList("DeptId", Model)
+
+<div id="d1">
+
+</div>
+
+@section Scripts{
+    <script>
+        $("#DeptId").on("change", function () {
+            let id = $("#DeptId").val();
+            $("#d1").load("/Instructor/InstBydept/" + id)
+        })
+    </script>
+}

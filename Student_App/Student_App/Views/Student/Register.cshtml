@@ -1,0 +1,69 @@
+﻿@model Student_App.Models.Student
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<form method="post" enctype="multipart/form-data" style="width:100%">
+    <div class="form-group">
+        @Html.LabelFor(n => n.St_Id)
+        @Html.TextBoxFor(n => n.St_Id, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.St_Id, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.St_Fname)
+        @Html.TextBoxFor(n => n.St_Fname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.St_Fname, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.St_Lname)
+        @Html.TextBoxFor(n => n.St_Lname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.St_Lname, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.St_Age)
+        @Html.TextBoxFor(n => n.St_Age, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.St_Age, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.St_Address)
+        @Html.TextBoxFor(n => n.St_Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.St_Address, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.Email)
+        @Html.TextBoxFor(n => n.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Email, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.Password)
+        @Html.PasswordFor(n => n.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.Password, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.ConfirmPassword)
+        @Html.PasswordFor(n => n.ConfirmPassword, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.ConfirmPassword, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(n => n.phone)
+        @Html.TextBoxFor(n => n.phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(n => n.phone, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(n => n.photo)
+        <input type="file" name="img" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-default" />
+    </div>
+</form>
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,21 @@
+﻿
+<table class="table center-block">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Degree</td>
+        <td>Salary</td>
+    </tr>
+
+    @foreach (var item in (List<Student_App.Models.Instructor>)ViewBag.inst)
+    {
+        <tr>
+            <td>@item.Ins_Id</td>
+            <td>@item.Ins_Name</td>
+            <td>@item.Ins_Degree</td>
+            <td>@item.Salary</td>
+        </tr>
+     }
+        
+    </table>
+
