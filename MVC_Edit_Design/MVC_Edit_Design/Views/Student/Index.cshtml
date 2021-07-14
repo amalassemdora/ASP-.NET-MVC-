@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_layout2.cshtml";
 }
 
-@Html.ActionLink("Create", "Create", null, new { @class="btn btn-info"})
 <table style="width:100%;" class="table">
     <tr>
         <th>@Html.DisplayNameFor(n => n[0].St_Id)</th>
@@ -37,33 +36,33 @@
     <td>
         @if (item.photo != null)
         {
-            <img src="~/Attach/@item.photo" width="100" height="100" />
+            <img src="/Attach/@item.photo" width="100" height="100" />
 
         }
         else
         {
-            <img src="~/Attach/download.png" width="100" height="100" />
+            <img src="/Attach/download.png" width="100" height="100" />
         }
     </td>
     @*CV*@
 <td>
     @if (item.CV != null)
     {
-        <iframe src="~/Attach/@item.CV" width="100" height="100" />
-        @*<a src="~/Attach/@item.CV">@item.CV</a>*@
+        //<iframe src="/Attach/@item.CV" width="100" height="100" />
+        <a href="~/Attach/@item.CV">@item.CV</a>
     }
     else
     {
-        @*<iframe src="~/Attach/nocv.pdf" width="100" height="100"></iframe>*@
-        <img src="~/Attach/nocv.png" width="100" height="100" />
-
+       <p>NO CV</p>
     }
 </td>
-    <td>
-        @Html.ActionLink("delete", "remove", new { id = item.St_Id }, new { @class = "btn btn-danger", onClick = $"return confirm('Are you sure to delete {item.St_Fname + " " + item.St_Lname}?')" })
-        @Html.ActionLink("Edit", "edit", new { id = item.St_Id }, new { @class = "btn btn-info" })
-        @Html.ActionLink("Download", "download", new { name = item.CV }, new { @class = "btn btn-info" })
-    </td>
+<td>
+    @Html.ActionLink("delete", "remove", new { id = item.St_Id }, new { @class = "btn btn-danger", onClick = $"return confirm('Are you sure to delete {item.St_Fname + " " + item.St_Lname}?')" })
+    @Html.ActionLink("Edit", "edit", new { id = item.St_Id }, new { @class = "btn btn-info" })
+   @* @Html.ActionLink("Download", "download", new { name = item.CV }, new { @class = "btn btn-info" })*@
+    @Html.ActionLink("download", "download", new { name = item.photo}, new { @class = "btn btn-info" })
+
+</td>
 </tr>
 }
 

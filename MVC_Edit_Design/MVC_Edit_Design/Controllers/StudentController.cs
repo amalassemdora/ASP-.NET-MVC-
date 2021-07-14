@@ -31,7 +31,6 @@ namespace MVC_Edit_Design.Controllers
                 img.SaveAs(Server.MapPath($"~/Attach/{img.FileName}"));
                 //save path in student object
                 s.photo = img.FileName;
-
 			}
             //file
             if (file != null)
@@ -66,29 +65,29 @@ namespace MVC_Edit_Design.Controllers
             return RedirectToAction("Index");
 		}
 
-        public ActionResult edit(int id,HttpPostedFileBase img,HttpPostedFileBase file)
+        public ActionResult edit(int id)
         {
             Student s = db.Students.Where(n => n.St_Id == id).SingleOrDefault();
             List<Department> d = db.Departments.ToList();
             SelectList dept = new SelectList(d, "Dept_Id", "Dept_Name");
             ViewBag.dept = dept;
-            //Image
-            if (img != null)
-            {
-                //upload file on server
-                img.SaveAs(Server.MapPath($"~/Attach/{img.FileName}"));
-                //save path in student object
-                s.photo = img.FileName;
+            ////Image
+            //if (img != null)
+            //{
+            //    //upload file on server
+            //    img.SaveAs(Server.MapPath($"~/Attach/{img.FileName}"));
+            //    //save path in student object
+            //    s.photo = img.FileName;
 
-            }
-            //file
-            if (file != null)
-            {
-                //upload file on server
-                img.SaveAs(Server.MapPath($"~/Attach/{file.FileName}"));
-                //save path in student object
-                s.CV = file.FileName;
-            }
+            //}
+            ////file
+            //if (file != null)
+            //{
+            //    //upload file on server
+            //    img.SaveAs(Server.MapPath($"~/Attach/{file.FileName}"));
+            //    //save path in student object
+            //    s.CV = file.FileName;
+            //}
                
             return View(s);
         }
@@ -113,8 +112,12 @@ namespace MVC_Edit_Design.Controllers
         }
         public ActionResult download(string name)
 		{
-            return File($"~/Attach/{name}", "application/pdf");
-		}
+            if (name != null)
+                return File($"~/Attach/{name}", "image/png");
+            else
+                return File($"~/Attach/", "image/png");
+           
+        }
         public ActionResult about()
         {
             return View();
